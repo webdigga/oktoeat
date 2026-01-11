@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oktoeat.co.uk/sitemap.xml

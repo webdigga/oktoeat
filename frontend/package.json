@@ -1,0 +1,41 @@
+{
+  "name": "oktoeat-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vike dev",
+    "dev:wrangler": "vike build && wrangler dev",
+    "build": "vike build",
+    "preview": "vike build && vike preview",
+    "deploy": "vike build && wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "db:init": "wrangler d1 execute oktoeat-db --local --file=scripts/schema.sql",
+    "db:init:remote": "wrangler d1 execute oktoeat-db --remote --file=scripts/schema.sql"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^5.2.7",
+    "@photonjs/cloudflare": "^0.1.13",
+    "@photonjs/hono": "^0.1.12",
+    "hono": "^4.11.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "vike": "^0.4.250",
+    "vike-photon": "^0.1.24",
+    "vike-react": "^0.6.18"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251223.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "typescript": "~5.7.2",
+    "vite": "^7.3.0",
+    "wrangler": "^4.56.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "oktoeat",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "dev:wrangler": "npm run dev:wrangler --prefix frontend",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "preview": "npm run preview --prefix frontend",
+    "typecheck": "npm run typecheck --prefix frontend",
+    "lint": "npm run lint --prefix frontend",
+    "install:all": "npm install --prefix frontend",
+    "db:init": "npm run db:init --prefix frontend",
+    "db:init:remote": "npm run db:init:remote --prefix frontend",
+    "import": "npx tsx frontend/scripts/import-csv.ts",
+    "import:remote": "npx tsx frontend/scripts/import-csv.ts --remote"
+  }
+}

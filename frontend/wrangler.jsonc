@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "oktoeat",
+  "account_id": "749e8e915104c226e492df9c5bb31444",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "virtual:photon:cloudflare:server-entry",
+
+  // D1 Database binding
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "oktoeat-db",
+      "database_id": "26c6a9d2-17bc-4aae-9be9-9ca6460af5f2"
+    }
+  ],
+
+  // Weekly data refresh (Sunday 3am UTC)
+  "triggers": {
+    "crons": ["0 3 * * 0"]
+  }
+}
