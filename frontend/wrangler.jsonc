@@ -17,6 +17,6 @@
 
   // Weekly data refresh (Sunday 3am UTC)
   "triggers": {
-    "crons": ["0 3 * * 0"]
+    "crons": ["0 3 * * SUN"]
   }
 }
