@@ -313,14 +313,8 @@ ${urls.join('\n')}
     });
   });
 
-  // Business sitemaps (paginated)
-  app.get('/sitemap-businesses-:page.xml', async (c) => {
-    const page = parseInt(c.req.param('page'), 10);
-
-    if (isNaN(page) || page < 1) {
-      return c.text('Invalid page number', 400);
-    }
-
+  // Business sitemaps (paginated) - helper function
+  async function generateBusinessSitemap(c: any, page: number) {
     const businesses = await getBusinessesForSitemap(c.env.DB, page, SITEMAP_PAGE_SIZE);
 
     if (businesses.length === 0) {
@@ -342,7 +336,24 @@ ${urls.join('\n')}
       'Content-Type': 'application/xml',
       'Cache-Control': `public, max-age=${SITEMAP_CACHE_TTL}, s-maxage=${SITEMAP_CACHE_TTL}`,
     });
-  });
+  }
+
+  // Explicit routes for business sitemaps (Hono doesn't handle :param.xml well)
+  app.get('/sitemap-businesses-1.xml', (c) => generateBusinessSitemap(c, 1));
+  app.get('/sitemap-businesses-2.xml', (c) => generateBusinessSitemap(c, 2));
+  app.get('/sitemap-businesses-3.xml', (c) => generateBusinessSitemap(c, 3));
+  app.get('/sitemap-businesses-4.xml', (c) => generateBusinessSitemap(c, 4));
+  app.get('/sitemap-businesses-5.xml', (c) => generateBusinessSitemap(c, 5));
+  app.get('/sitemap-businesses-6.xml', (c) => generateBusinessSitemap(c, 6));
+  app.get('/sitemap-businesses-7.xml', (c) => generateBusinessSitemap(c, 7));
+  app.get('/sitemap-businesses-8.xml', (c) => generateBusinessSitemap(c, 8));
+  app.get('/sitemap-businesses-9.xml', (c) => generateBusinessSitemap(c, 9));
+  app.get('/sitemap-businesses-10.xml', (c) => generateBusinessSitemap(c, 10));
+  app.get('/sitemap-businesses-11.xml', (c) => generateBusinessSitemap(c, 11));
+  app.get('/sitemap-businesses-12.xml', (c) => generateBusinessSitemap(c, 12));
+  app.get('/sitemap-businesses-13.xml', (c) => generateBusinessSitemap(c, 13));
+  app.get('/sitemap-businesses-14.xml', (c) => generateBusinessSitemap(c, 14));
+  app.get('/sitemap-businesses-15.xml', (c) => generateBusinessSitemap(c, 15));
 
   // Manual import trigger (protected - requires secret header)
   app.post('/api/import', async (c) => {
