@@ -13,6 +13,7 @@
     "db:init": "npm run db:init --prefix frontend",
     "db:init:remote": "npm run db:init:remote --prefix frontend",
     "import": "npx tsx frontend/scripts/import-csv.ts",
-    "import:remote": "npx tsx frontend/scripts/import-csv.ts --remote"
+    "import:remote": "npx tsx frontend/scripts/import-csv.ts --remote",
+    "deploy": "npm run build --prefix frontend && cd frontend && npx wrangler deploy"
   }
 }

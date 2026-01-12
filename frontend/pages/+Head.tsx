@@ -1,6 +1,9 @@
 export function Head() {
   return (
     <>
+      {/* Google Search Console verification */}
+      <meta name="google-site-verification" content="FIEU8FhQQdUzggFJvxnaXK5jwWfGhK8AvKzO9_plj5g" />
+
       {/* Language alternates */}
       <link rel="alternate" hrefLang="en-GB" href="https://oktoeat.co.uk/" />
       <link rel="alternate" hrefLang="x-default" href="https://oktoeat.co.uk/" />
