@@ -62,6 +62,19 @@ function startServer() {
     }
   });
 
+  // Redirect trailing slashes to non-trailing slash URLs (SEO best practice)
+  app.use('*', async (c, next) => {
+    const url = new URL(c.req.url);
+    // Skip root path, API routes, and sitemap files
+    if (url.pathname !== '/' && !url.pathname.startsWith('/api/') && !url.pathname.endsWith('.xml')) {
+      if (url.pathname.endsWith('/')) {
+        const newPath = url.pathname.slice(0, -1) + url.search;
+        return c.redirect(newPath, 301);
+      }
+    }
+    await next();
+  });
+
   // CORS for API routes
   app.use('/api/*', cors());
 
