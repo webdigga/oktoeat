@@ -26,7 +26,7 @@ const SEARCH_CACHE_TTL = 5 * 60; // 5 minutes for search
 const SITEMAP_CACHE_TTL = 24 * 60 * 60; // 24 hours for sitemaps
 
 const DOMAIN = 'https://oktoeat.co.uk';
-const SITEMAP_PAGE_SIZE = 50000;
+const SITEMAP_PAGE_SIZE = 10000;
 
 function startServer() {
   const app = new Hono<{ Bindings: Env }>();
@@ -339,6 +339,7 @@ ${urls.join('\n')}
   }
 
   // Explicit routes for business sitemaps (Hono doesn't handle :param.xml well)
+  // With 600k businesses and 10k per page, we need ~60 sitemap files
   app.get('/sitemap-businesses-1.xml', (c) => generateBusinessSitemap(c, 1));
   app.get('/sitemap-businesses-2.xml', (c) => generateBusinessSitemap(c, 2));
   app.get('/sitemap-businesses-3.xml', (c) => generateBusinessSitemap(c, 3));
@@ -354,6 +355,51 @@ ${urls.join('\n')}
   app.get('/sitemap-businesses-13.xml', (c) => generateBusinessSitemap(c, 13));
   app.get('/sitemap-businesses-14.xml', (c) => generateBusinessSitemap(c, 14));
   app.get('/sitemap-businesses-15.xml', (c) => generateBusinessSitemap(c, 15));
+  app.get('/sitemap-businesses-16.xml', (c) => generateBusinessSitemap(c, 16));
+  app.get('/sitemap-businesses-17.xml', (c) => generateBusinessSitemap(c, 17));
+  app.get('/sitemap-businesses-18.xml', (c) => generateBusinessSitemap(c, 18));
+  app.get('/sitemap-businesses-19.xml', (c) => generateBusinessSitemap(c, 19));
+  app.get('/sitemap-businesses-20.xml', (c) => generateBusinessSitemap(c, 20));
+  app.get('/sitemap-businesses-21.xml', (c) => generateBusinessSitemap(c, 21));
+  app.get('/sitemap-businesses-22.xml', (c) => generateBusinessSitemap(c, 22));
+  app.get('/sitemap-businesses-23.xml', (c) => generateBusinessSitemap(c, 23));
+  app.get('/sitemap-businesses-24.xml', (c) => generateBusinessSitemap(c, 24));
+  app.get('/sitemap-businesses-25.xml', (c) => generateBusinessSitemap(c, 25));
+  app.get('/sitemap-businesses-26.xml', (c) => generateBusinessSitemap(c, 26));
+  app.get('/sitemap-businesses-27.xml', (c) => generateBusinessSitemap(c, 27));
+  app.get('/sitemap-businesses-28.xml', (c) => generateBusinessSitemap(c, 28));
+  app.get('/sitemap-businesses-29.xml', (c) => generateBusinessSitemap(c, 29));
+  app.get('/sitemap-businesses-30.xml', (c) => generateBusinessSitemap(c, 30));
+  app.get('/sitemap-businesses-31.xml', (c) => generateBusinessSitemap(c, 31));
+  app.get('/sitemap-businesses-32.xml', (c) => generateBusinessSitemap(c, 32));
+  app.get('/sitemap-businesses-33.xml', (c) => generateBusinessSitemap(c, 33));
+  app.get('/sitemap-businesses-34.xml', (c) => generateBusinessSitemap(c, 34));
+  app.get('/sitemap-businesses-35.xml', (c) => generateBusinessSitemap(c, 35));
+  app.get('/sitemap-businesses-36.xml', (c) => generateBusinessSitemap(c, 36));
+  app.get('/sitemap-businesses-37.xml', (c) => generateBusinessSitemap(c, 37));
+  app.get('/sitemap-businesses-38.xml', (c) => generateBusinessSitemap(c, 38));
+  app.get('/sitemap-businesses-39.xml', (c) => generateBusinessSitemap(c, 39));
+  app.get('/sitemap-businesses-40.xml', (c) => generateBusinessSitemap(c, 40));
+  app.get('/sitemap-businesses-41.xml', (c) => generateBusinessSitemap(c, 41));
+  app.get('/sitemap-businesses-42.xml', (c) => generateBusinessSitemap(c, 42));
+  app.get('/sitemap-businesses-43.xml', (c) => generateBusinessSitemap(c, 43));
+  app.get('/sitemap-businesses-44.xml', (c) => generateBusinessSitemap(c, 44));
+  app.get('/sitemap-businesses-45.xml', (c) => generateBusinessSitemap(c, 45));
+  app.get('/sitemap-businesses-46.xml', (c) => generateBusinessSitemap(c, 46));
+  app.get('/sitemap-businesses-47.xml', (c) => generateBusinessSitemap(c, 47));
+  app.get('/sitemap-businesses-48.xml', (c) => generateBusinessSitemap(c, 48));
+  app.get('/sitemap-businesses-49.xml', (c) => generateBusinessSitemap(c, 49));
+  app.get('/sitemap-businesses-50.xml', (c) => generateBusinessSitemap(c, 50));
+  app.get('/sitemap-businesses-51.xml', (c) => generateBusinessSitemap(c, 51));
+  app.get('/sitemap-businesses-52.xml', (c) => generateBusinessSitemap(c, 52));
+  app.get('/sitemap-businesses-53.xml', (c) => generateBusinessSitemap(c, 53));
+  app.get('/sitemap-businesses-54.xml', (c) => generateBusinessSitemap(c, 54));
+  app.get('/sitemap-businesses-55.xml', (c) => generateBusinessSitemap(c, 55));
+  app.get('/sitemap-businesses-56.xml', (c) => generateBusinessSitemap(c, 56));
+  app.get('/sitemap-businesses-57.xml', (c) => generateBusinessSitemap(c, 57));
+  app.get('/sitemap-businesses-58.xml', (c) => generateBusinessSitemap(c, 58));
+  app.get('/sitemap-businesses-59.xml', (c) => generateBusinessSitemap(c, 59));
+  app.get('/sitemap-businesses-60.xml', (c) => generateBusinessSitemap(c, 60));
 
   // Manual import trigger (protected - requires secret header)
   app.post('/api/import', async (c) => {
