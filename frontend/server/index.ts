@@ -400,6 +400,7 @@ ${urls.join('\n')}
   app.get('/sitemap-businesses-58.xml', (c) => generateBusinessSitemap(c, 58));
   app.get('/sitemap-businesses-59.xml', (c) => generateBusinessSitemap(c, 59));
   app.get('/sitemap-businesses-60.xml', (c) => generateBusinessSitemap(c, 60));
+  app.get('/sitemap-businesses-61.xml', (c) => generateBusinessSitemap(c, 61));
 
   // Manual import trigger (protected - requires secret header)
   app.post('/api/import', async (c) => {
